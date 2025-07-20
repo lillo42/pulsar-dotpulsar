@@ -117,10 +117,10 @@ public sealed class MessageId : IEquatable<MessageId>, IComparable<MessageId>
     public bool Equals(MessageId? other)
         => other is not null && LedgerId == other.LedgerId && EntryId == other.EntryId && Partition == other.Partition && BatchIndex == other.BatchIndex && Topic == other.Topic;
 
-    public static bool operator ==(MessageId x, MessageId y)
+    public static bool operator ==(MessageId? x, MessageId? y)
         => ReferenceEquals(x, y) || (x is not null && x.Equals(y));
 
-    public static bool operator !=(MessageId x, MessageId y)
+    public static bool operator !=(MessageId? x, MessageId? y)
         => !(x == y);
 
     public override int GetHashCode()
